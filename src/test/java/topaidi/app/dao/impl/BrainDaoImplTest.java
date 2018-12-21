@@ -1,4 +1,4 @@
-package com.jpa2.app.dao.impl;
+package topaidi.app.dao.impl;
 
 import static org.junit.Assert.assertTrue;
 
@@ -7,80 +7,81 @@ import org.junit.Before;
 import org.junit.Test;
 
 import topaidi.app.model.persons.Brain;
+import topaidi.app.utils.Application;
 
 public class BrainDaoImplTest {
-	BrainDaoImpl BrainDao;
-	Brain q;
+	BrainDaoImpl brainDao;
+	Brain var1;
 
 	@Before
 	public void init() {
-		BrainDao = new BrainDaoImpl();
-		q = new Brain();
-		q.setName("Brain 1");
+		brainDao = new BrainDaoImpl();
+		var1 = new Brain();
+		var1.setPseudo("Brain 1");
 	}
 
 	@Test
 	public void testFindAll() {
-		Brain q2 = new Brain();
-		q2.setName("Brain 2");
+		Brain var2 = new Brain();
+		var2.setPseudo("Brain 2");
 		
-		Brain q3 = new Brain();
-		q3.setName("Brain 3");
+		Brain var3 = new Brain();
+		var3.setPseudo("Brain 3");
 		
-		BrainDao.insert(q);
-		BrainDao.insert(q2);
-		BrainDao.insert(q3);
+		brainDao.insert(var1);
+		brainDao.insert(var2);
+		brainDao.insert(var3);
 
-		assertTrue(BrainDao.findAll().size() == 3);
+		assertTrue(brainDao.findAll().size() == 3);
 	}
 
 	@Test
 	public void testFindByKey() {
-		BrainDao.insert(q);
+		brainDao.insert(var1);
 		
-		assertTrue(BrainDao.findByKey(1).getName().equals(q.getName()));
+		assertTrue(brainDao.findByKey(1).getPseudo().equals(var1.getPseudo()));
 	}
 
 	@Test
 	public void testInsert() {
-		BrainDao.insert(q);
+		brainDao.insert(var1);
 
-		assertTrue(BrainDao.findByKey(1).getName().equals(q.getName()));
+		assertTrue(brainDao.findByKey(1).getPseudo().equals(var1.getPseudo()));
 	}
 
 	@Test
 	public void testUpdate() {
-		BrainDao.insert(q);
-		q.setName("Toto");
-		BrainDao.update(q);
+		brainDao.insert(var1);
+		var1.setPseudo("Toto");
+		brainDao.update(var1);
 		
-		assertTrue(q.getName().equals(BrainDao.findByKey(1).getName()));		
+		assertTrue(var1.getPseudo().equals(brainDao.findByKey(1).getPseudo()));		
 	}
 
 	@Test
 	public void testDelete() {
-		Brain q2 = new Brain();
-		q2.setName("Brain 2");
+		Brain var2 = new Brain();
+		var2.setPseudo("Brain 2");
 		
-		BrainDao.insert(q);
-		BrainDao.insert(q2);
+		brainDao.insert(var1);
+		brainDao.insert(var2);
 		
-		BrainDao.delete(q);		
+		brainDao.delete(var1);		
 		
-		assertTrue(BrainDao.findAll().size() == 1);		
+		assertTrue(brainDao.findAll().size() == 1);		
 	}
 
 	@Test
 	public void testDeleteByKey() {
-		Brain q2 = new Brain();
-		q2.setName("Brain 2");
+		Brain var2 = new Brain();
+		var2.setPseudo("Brain 2");
 		
-		BrainDao.insert(q);
-		BrainDao.insert(q2);
+		brainDao.insert(var1);
+		brainDao.insert(var2);
 		
-		BrainDao.deleteByKey(1);	
+		brainDao.deleteByKey(1);	
 		
-		assertTrue(BrainDao.findAll().size() == 1);		
+		assertTrue(brainDao.findAll().size() == 1);		
 	}
 
 	@After
