@@ -36,13 +36,13 @@ public class AdminDaoImpl implements AdminDao {
 		Admin admin = new Admin();
 		EntityManager em = Application.getInstance().getEmf().createEntityManager();
 		try {
-			em.getTransaction().begin();
+//			em.getTransaction().begin();
 			admin = em.find(Admin.class, id);
-			em.getTransaction().commit();
+//			em.getTransaction().commit();
 		} catch (Exception e) {
 			e.printStackTrace();
-			if (em.getTransaction() != null)
-				em.getTransaction().rollback();
+//			if (em.getTransaction() != null)
+//				em.getTransaction().rollback();
 		} finally {
 			em.close();
 		}

@@ -11,89 +11,78 @@ import topaidi.app.model.persons.Brain;
 import topaidi.app.utils.Application;
 
 public class VoteDaoImplTest {
-	VoteDaoImpl adminDao;
+	VoteDaoImpl voteDao;
 	Vote var1;
 
 	@Before
 	public void init() {
-		adminDao = new VoteDaoImpl();
+		voteDao = new VoteDaoImpl();
 		var1 = new Vote();
-		Brain brain = new Brain();
-		brain.setPseudo("Brain 1");
-		var1.setBrain(brain);
+		var1.setTop(true);
 	}
 
 	@Test
 	public void testFindAll() {
 		Vote var2 = new Vote();
-		Brain brain2 = new Brain();
-		brain2.setPseudo("Brain 2");
-		var2.setBrain(brain2);
+		var2.setTop(true);
 		
 		Vote var3 = new Vote();
-		Brain brain3 = new Brain();
-		brain3.setPseudo("Brain 3");
-		var2.setBrain(brain3);
+		var3.setTop(true);
 		
-		adminDao.insert(var1);
-		adminDao.insert(var2);
-		adminDao.insert(var3);
+		voteDao.insert(var1);
+		voteDao.insert(var2);
+		voteDao.insert(var3);
 
-		assertTrue(adminDao.findAll().size() == 3);
+		assertTrue(voteDao.findAll().size() == 3);
 	}
 
 	@Test
 	public void testFindByKey() {
-		adminDao.insert(var1);
+		voteDao.insert(var1);
 		
-		assertTrue(adminDao.findByKey(1).getBrain().getPseudo().equals(var1.getBrain().getPseudo()));
+		assertTrue(voteDao.findByKey(1).isTop() == true);
 	}
 
 	@Test
 	public void testInsert() {
-		adminDao.insert(var1);
+		voteDao.insert(var1);
 
-		assertTrue(adminDao.findByKey(1).getBrain().getPseudo().equals(var1.getBrain().getPseudo()));
+		assertTrue(voteDao.findByKey(1).isTop() == true);
 	}
 
 	@Test
 	public void testUpdate() {
-		adminDao.insert(var1);
-		var1.getBrain().setPseudo("Toto");
-		adminDao.update(var1);
+		voteDao.insert(var1);
+		var1.setTop(false);
+		voteDao.update(var1);
 		
-		assertTrue(adminDao.findByKey(1).getBrain().getPseudo().equals(var1.getBrain().getPseudo()));
-
+		assertTrue(voteDao.findByKey(1).isTop() == false);
 	}
 
 	@Test
 	public void testDelete() {
 		Vote var2 = new Vote();
-		Brain brain2 = new Brain();
-		brain2.setPseudo("Brain 2");
-		var2.setBrain(brain2);
+		var2.setTop(true);
 		
-		adminDao.insert(var1);
-		adminDao.insert(var2);
+		voteDao.insert(var1);
+		voteDao.insert(var2);
 		
-		adminDao.delete(var1);		
+		voteDao.delete(var1);		
 		
-		assertTrue(adminDao.findAll().size() == 1);		
+		assertTrue(voteDao.findAll().size() == 1);		
 	}
 
 	@Test
 	public void testDeleteByKey() {
 		Vote var2 = new Vote();
-		Brain brain2 = new Brain();
-		brain2.setPseudo("Brain 2");
-		var2.setBrain(brain2);
+		var2.setTop(true);
 		
-		adminDao.insert(var1);
-		adminDao.insert(var2);
+		voteDao.insert(var1);
+		voteDao.insert(var2);
 		
-		adminDao.deleteByKey(1);	
+		voteDao.deleteByKey(1);	
 		
-		assertTrue(adminDao.findAll().size() == 1);		
+		assertTrue(voteDao.findAll().size() == 1);
 	}
 
 	@After

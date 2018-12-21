@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.ReportCommentDao;
 import topaidi.app.model.reports.ReportComment;
+import topaidi.app.model.reports.ReportComment;
 import topaidi.app.utils.Application;
 
 public class ReportCommentDaoImpl implements ReportCommentDao {
@@ -67,25 +68,21 @@ public class ReportCommentDaoImpl implements ReportCommentDao {
 
 	@Override
 	public ReportComment update(ReportComment rc) {
+		ReportComment rcUpdated = new ReportComment();
 		EntityManager em = Application.getInstance().getEmf().createEntityManager();
 		try {
-			ReportComment rcToDelete = em.find(ReportComment.class, rc.getId());
-			if (rcToDelete != null) {
-				em.getTransaction().begin();
-				em.remove(rcToDelete);
-				em.getTransaction().commit();
-				System.out.println("Removed");
-			} else {
-				System.out.println("Not found");
-			}
-		} catch (Exception e) {
+			em.getTransaction().begin();
+			em.merge(rc);
+			rcUpdated = em.find(ReportComment.class, rc.getId());
+			em.getTransaction().commit();
+			} catch (Exception e) {
 			e.printStackTrace();
 			if (em.getTransaction() != null)
 				em.getTransaction().rollback();
 		} finally {
 			em.close();
 		}
-		return null;
+		return rcUpdated;
 	}
 
 	@Override

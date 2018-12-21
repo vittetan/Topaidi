@@ -5,9 +5,6 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import topaidi.app.model.ideas.Comment;
@@ -18,15 +15,11 @@ import topaidi.app.model.reports.ReportIdea;
 
 @Entity
 public class Brain extends Person {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
 
-	@Column()
+	@Column
 	private boolean isValidated;
 	
-	@Column()
+	@Column
 	private boolean isActivated;
 
 	@OneToMany(mappedBy="brain")
@@ -57,14 +50,6 @@ public class Brain extends Person {
 		this.votes = new HashSet<Vote>();
 		this.reportIdeas = new HashSet<ReportIdea>();
 		this.reportComments = new HashSet<ReportComment>();
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public boolean isValidated() {
