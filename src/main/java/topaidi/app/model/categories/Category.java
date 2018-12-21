@@ -39,7 +39,7 @@ public class Category {
 		setDescription(description);
 		setIdeas(ideas);
 	}
-	
+
 
 	public int getId() {
 		return id;
@@ -55,13 +55,16 @@ public class Category {
 		return name;
 	}
 
+
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
 	public String getDescription() {
 		return description;
 	}
+
 
 	public void setDescription(String description) {
 		this.description = description;
@@ -72,10 +75,11 @@ public class Category {
 		return ideas;
 	}
 
+
 	public void setIdeas(Set<Idea> ideas) {
 		this.ideas = ideas;
 	}
-
+		
 
 
 }

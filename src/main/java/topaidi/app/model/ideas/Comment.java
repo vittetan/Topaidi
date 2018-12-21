@@ -1,7 +1,7 @@
 package topaidi.app.model.ideas;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import topaidi.app.model.persons.Brain;
 import topaidi.app.model.reports.ReportComment;
@@ -20,9 +21,6 @@ public class Comment {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
-	@Column
-	private Brain brain;
 	
 	@Column
 	private String description;
@@ -33,9 +31,13 @@ public class Comment {
 	@ManyToOne
 	@JoinColumn(name="IDEA_ID")
 	private Idea idea;
-
 	
-	private List<ReportComment> reports;
+	@ManyToOne
+	@JoinColumn(name="BRAIN_ID")
+	private Brain brain;
+
+	@OneToMany(mappedBy="comment")
+	private Set<ReportComment> reports;
 	
 
 	public Comment() {
@@ -48,7 +50,7 @@ public class Comment {
 		
 		setActivated(true);
 		
-		this.reports = new ArrayList<ReportComment>();		
+		this.reports = new HashSet<ReportComment>();		
 	}
 
 	public int getId() {
@@ -59,28 +61,12 @@ public class Comment {
 		this.id = id;
 	}
 
-	public List<ReportComment> getReports() {
-		return reports;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setReports(List<ReportComment> reports) {
-		this.reports = reports;
-	}
-
-	public Brain getBrain() {
-		return brain;
-	}
-
-	public void setBrain(Brain brain) {
-		this.brain = brain;
-	}
-
-	public Idea getIdea() {
-		return idea;
-	}
-
-	public void setIdea(Idea idea) {
-		this.idea = idea;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public boolean isActivated() {
@@ -91,12 +77,28 @@ public class Comment {
 		this.isActivated = isActivated;
 	}
 
-	public String getDescription() {
-		return description;
+	public Idea getIdea() {
+		return idea;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setIdea(Idea idea) {
+		this.idea = idea;
 	}
+
+	public Brain getBrain() {
+		return brain;
+	}
+
+	public void setBrain(Brain brain) {
+		this.brain = brain;
+	}
+
+	public Set<ReportComment> getReports() {
+		return reports;
+	}
+
+	public void setReports(Set<ReportComment> reports) {
+		this.reports = reports;
+	}	
 
 }

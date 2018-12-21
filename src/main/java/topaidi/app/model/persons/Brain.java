@@ -1,8 +1,6 @@
 package topaidi.app.model.persons;
 
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -34,11 +32,17 @@ public class Brain extends Person {
 	@OneToMany(mappedBy="brain")
 	private Set<Idea> ideas;
 	
+	@OneToMany(mappedBy="brain")
+	private Set<Comment> comments;
 	
-	private List<Comment> comments;
-	private List<Vote> votes;
-	private List<ReportIdea> reportIdeas;
-	private List<ReportComment> reportComments;
+	@OneToMany(mappedBy="brain")
+	private Set<Vote> votes;
+	
+	@OneToMany(mappedBy="brain")
+	private Set<ReportIdea> reportIdeas;
+	
+	@OneToMany(mappedBy="brain")
+	private Set<ReportComment> reportComments;
 	
 	public Brain() {
 	}
@@ -49,10 +53,10 @@ public class Brain extends Person {
 		setActivated(true);
 		
 		this.ideas = new HashSet<Idea>();
-		this.comments = new ArrayList<Comment>();
-		this.votes = new ArrayList<Vote>();
-		this.reportIdeas = new ArrayList<ReportIdea>();
-		this.reportComments = new ArrayList<ReportComment>();
+		this.comments = new HashSet<Comment>();
+		this.votes = new HashSet<Vote>();
+		this.reportIdeas = new HashSet<ReportIdea>();
+		this.reportComments = new HashSet<ReportComment>();
 	}
 
 	public int getId() {
@@ -61,46 +65,6 @@ public class Brain extends Person {
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Set<Idea> getIdeas() {
-		return ideas;
-	}
-
-	public void setIdeas(Set<Idea> ideas) {
-		this.ideas = ideas;
-	}
-
-	public List<Comment> getComments() {
-		return comments;
-	}
-
-	public void setComments(List<Comment> comments) {
-		this.comments = comments;
-	}
-
-	public List<Vote> getVotes() {
-		return votes;
-	}
-
-	public void setVotes(List<Vote> votes) {
-		this.votes = votes;
-	}
-
-	public List<ReportIdea> getReportIdeas() {
-		return reportIdeas;
-	}
-
-	public void setReportIdeas(List<ReportIdea> reportIdeas) {
-		this.reportIdeas = reportIdeas;
-	}
-
-	public List<ReportComment> getReportComments() {
-		return reportComments;
-	}
-
-	public void setReportComments(List<ReportComment> reportComments) {
-		this.reportComments = reportComments;
 	}
 
 	public boolean isValidated() {
@@ -118,5 +82,45 @@ public class Brain extends Person {
 	public void setActivated(boolean isActivated) {
 		this.isActivated = isActivated;
 	}
+
+	public Set<Idea> getIdeas() {
+		return ideas;
+	}
+
+	public void setIdeas(Set<Idea> ideas) {
+		this.ideas = ideas;
+	}
+
+	public Set<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public Set<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVotes(Set<Vote> votes) {
+		this.votes = votes;
+	}
+
+	public Set<ReportIdea> getReportIdeas() {
+		return reportIdeas;
+	}
+
+	public void setReportIdeas(Set<ReportIdea> reportIdeas) {
+		this.reportIdeas = reportIdeas;
+	}
+
+	public Set<ReportComment> getReportComments() {
+		return reportComments;
+	}
+
+	public void setReportComments(Set<ReportComment> reportComments) {
+		this.reportComments = reportComments;
+	}	
 
 }

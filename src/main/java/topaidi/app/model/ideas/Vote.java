@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import topaidi.app.model.categories.Category;
 import topaidi.app.model.persons.Brain;
 
 @Entity
@@ -20,14 +19,14 @@ public class Vote {
 	
 	@Column
 	private boolean isTop;
-	
-	@Column
-	private Brain brain;
 
-	
 	@ManyToOne
 	@JoinColumn(name="IDEA_ID")
 	private Idea idea;
+	
+	@ManyToOne
+	@JoinColumn(name="BRAIN_ID")
+	private Brain brain;
 	
 
 	public Vote() {
@@ -38,7 +37,6 @@ public class Vote {
 		setBrain(brain);
 		setIdea(idea);
 	}
-	
 
 	public int getId() {
 		return id;
@@ -56,14 +54,6 @@ public class Vote {
 		this.isTop = isTop;
 	}
 
-	public Brain getBrain() {
-		return brain;
-	}
-
-	public void setBrain(Brain brain) {
-		this.brain = brain;
-	}
-
 	public Idea getIdea() {
 		return idea;
 	}
@@ -71,5 +61,14 @@ public class Vote {
 	public void setIdea(Idea idea) {
 		this.idea = idea;
 	}
+
+	public Brain getBrain() {
+		return brain;
+	}
+
+	public void setBrain(Brain brain) {
+		this.brain = brain;
+	}
+		
 
 }

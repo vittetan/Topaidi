@@ -1,6 +1,5 @@
 package topaidi.app.model.reports;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,14 +17,14 @@ public class ReportIdea extends Report {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
-	@Column()
-	private Brain brain;
-	
 	@ManyToOne
 	@JoinColumn(name="IDEA_ID")
 	private Idea idea;
 	
-
+	@ManyToOne
+	@JoinColumn(name="BRAIN_ID")
+	private Brain brain;
+	
 	public ReportIdea() {
 	}
 	
@@ -47,7 +46,7 @@ public class ReportIdea extends Report {
 		return idea;
 	}
 
-	private void setIdea(Idea idea) {
+	public void setIdea(Idea idea) {
 		this.idea = idea;
 	}
 
@@ -55,8 +54,9 @@ public class ReportIdea extends Report {
 		return brain;
 	}
 
-	private void setBrain(Brain brain) {
+	public void setBrain(Brain brain) {
 		this.brain = brain;
 	}
+	
 
 }
