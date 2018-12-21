@@ -22,6 +22,9 @@ public abstract class Person {
 	@Column()
 	private String pseudo;
 
+	public Person() {
+	}
+	
 	public Person(String login, String password, String pseudo) {
 		setLogin(login);
 		setPassword(password);

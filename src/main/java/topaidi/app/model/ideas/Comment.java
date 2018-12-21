@@ -38,6 +38,9 @@ public class Comment {
 	private List<ReportComment> reports;
 	
 
+	public Comment() {
+	}
+	
 	public Comment(Brain brain,Idea idea, String description) {
 		setBrain(brain);
 		setIdea(idea);

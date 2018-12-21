@@ -16,6 +16,9 @@ public abstract class Report {
 	@Column()
 	private String description;
 
+	public Report() {
+	}
+	
 	public Report(String description) {
 		setDescription(description);
 	}

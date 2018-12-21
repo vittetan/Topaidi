@@ -30,6 +30,10 @@ public class Category {
 	private Set<Idea> ideas;
 	
 
+	public Category() {
+	}
+	
+	
 	public Category(String name, String description, Set<Idea> ideas) {
 		setName(name);
 		setDescription(description);

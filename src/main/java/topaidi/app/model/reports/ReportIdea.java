@@ -26,6 +26,9 @@ public class ReportIdea extends Report {
 	private Idea idea;
 	
 
+	public ReportIdea() {
+	}
+	
 	public ReportIdea(Idea idea, Brain brain, String description) {
 		super(description);
 		setIdea(idea);

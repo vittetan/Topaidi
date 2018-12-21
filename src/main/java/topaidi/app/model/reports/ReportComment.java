@@ -22,6 +22,9 @@ public class ReportComment extends Report {
 	@Column()
 	private Comment comment;
 
+	public ReportComment() {
+	}
+	
 	public ReportComment(Brain brain,Comment comment, String description) {
 		super(description);
 		setBrain(brain);

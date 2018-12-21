@@ -61,6 +61,9 @@ public class Idea {
 	@OneToMany(mappedBy="idea")
 	private Set<ReportIdea> reportIdeas;
 
+	public Idea() {
+	}
+	
 	public Idea(Brain brain, String title, String description, Category category) {
 		setBrain(brain);
 		setTitle(title);

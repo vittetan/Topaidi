@@ -30,6 +30,9 @@ public class Vote {
 	private Idea idea;
 	
 
+	public Vote() {
+	}
+	
 	public Vote(boolean isTop, Brain brain, Idea idea) {
 		setTop(isTop);
 		setBrain(brain);
