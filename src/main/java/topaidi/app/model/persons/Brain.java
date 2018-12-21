@@ -20,6 +20,9 @@ public class Brain extends Person {
 	private List<ReportIdea> reportIdeas;
 	private List<ReportComment> reportComments;
 	
+	public Brain() {
+	}
+	
 	public Brain(String login, String password, String pseudo) {
 		super(login, password, pseudo);
 		setValidated(false);

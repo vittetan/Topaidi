@@ -8,6 +8,9 @@ public class ReportIdea extends Report {
 	private Idea idea;
 	private Brain brain;
 
+	public ReportIdea() {
+	}
+	
 	public ReportIdea(Idea idea, Brain brain, String description) {
 		super(description);
 		setIdea(idea);

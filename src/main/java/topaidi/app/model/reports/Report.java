@@ -4,6 +4,9 @@ public abstract class Report {
 
 	private String description;
 
+	public Report() {
+	}
+	
 	public Report(String description) {
 		setDescription(description);
 	}

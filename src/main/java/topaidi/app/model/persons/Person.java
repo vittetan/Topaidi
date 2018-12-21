@@ -6,6 +6,9 @@ public abstract class Person {
 	private String password;
 	private String pseudo;
 
+	public Person() {
+	}
+	
 	public Person(String login, String password, String pseudo) {
 		setLogin(login);
 		setPassword(password);

@@ -10,6 +10,10 @@ public class Category {
 	private String description;
 	private List<Idea> ideas;
 
+	public Category() {
+	}
+	
+	
 	public Category(String name, String description, List<Idea> ideas) {
 		setName(name);
 		setDescription(description);

@@ -8,6 +8,9 @@ public class ReportComment extends Report {
 	private Brain brain;
 	private Comment comment;
 
+	public ReportComment() {
+	}
+	
 	public ReportComment(Brain brain,Comment comment, String description) {
 		super(description);
 		setBrain(brain);

@@ -6,6 +6,10 @@ import topaidi.app.model.ideas.Idea;
 
 public class Admin extends Person {
 
+	public Admin() {
+		super();
+	}
+	
 	public Admin(String login, String password, String pseudo) {
 		super(login, password, pseudo);
 	}

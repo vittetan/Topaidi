@@ -24,6 +24,9 @@ public class Idea {
 	private List<Vote> votes;
 	private List<ReportIdea> reportIdeas;
 
+	public Idea() {
+	}
+	
 	public Idea(Brain brain, String title, String description, Category category) {
 		setBrain(brain);
 		setTitle(title);
