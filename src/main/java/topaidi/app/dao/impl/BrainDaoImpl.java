@@ -8,7 +8,12 @@ import javax.persistence.Query;
 
 
 import topaidi.app.dao.BrainDao;
+import topaidi.app.model.ideas.Comment;
+import topaidi.app.model.ideas.Idea;
+import topaidi.app.model.ideas.Vote;
 import topaidi.app.model.persons.Brain;
+import topaidi.app.model.reports.ReportComment;
+import topaidi.app.model.reports.ReportIdea;
 import topaidi.app.utils.Application;
 
 public class BrainDaoImpl implements BrainDao {
@@ -128,6 +133,36 @@ public class BrainDaoImpl implements BrainDao {
 		} finally {
 			em.close();
 		}
+	}
+
+	@Override
+	public List<Idea> getAllIdeas() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Comment> getAllComments() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Vote> getAllVotes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ReportIdea> getAllReportsIdea() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ReportComment> getAllReportsComment() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

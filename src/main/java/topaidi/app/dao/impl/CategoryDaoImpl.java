@@ -129,4 +129,10 @@ public class CategoryDaoImpl implements CategoryDao {
 		}
 	}
 
+	@Override
+	public List<Category> getAllIdeasByCat(Category category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

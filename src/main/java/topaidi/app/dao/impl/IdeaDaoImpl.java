@@ -7,7 +7,10 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
 import topaidi.app.dao.IdeaDao;
+import topaidi.app.model.ideas.Comment;
 import topaidi.app.model.ideas.Idea;
+import topaidi.app.model.ideas.Vote;
+import topaidi.app.model.reports.ReportIdea;
 import topaidi.app.utils.Application;
 
 public class IdeaDaoImpl implements IdeaDao {
@@ -127,6 +130,24 @@ public class IdeaDaoImpl implements IdeaDao {
 		} finally {
 			em.close();
 		}
+	}
+
+	@Override
+	public List<Comment> getAllComments() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Vote> getAllVotes() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ReportIdea> getAllReportsIdea() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

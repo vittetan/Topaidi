@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.CommentDao;
 import topaidi.app.model.ideas.Comment;
+import topaidi.app.model.reports.ReportComment;
 import topaidi.app.utils.Application;
 
 public class CommentDaoImpl implements CommentDao {
@@ -127,6 +128,12 @@ public class CommentDaoImpl implements CommentDao {
 		} finally {
 			em.close();
 		}
+	}
+
+	@Override
+	public List<ReportComment> getAllReportsComment() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }
