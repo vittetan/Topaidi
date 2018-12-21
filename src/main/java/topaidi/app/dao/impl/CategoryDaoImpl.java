@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.CategoryDao;
 import topaidi.app.model.categories.Category;
+import topaidi.app.utils.Application;
 
 public class CategoryDaoImpl implements CategoryDao {
 
@@ -31,7 +32,7 @@ public class CategoryDaoImpl implements CategoryDao {
 	}
 
 	@Override
-	public Category findByKey(Integer key) {
+	public Category findByKey(Integer id) {
 		Category category = new Category();
 		EntityManager em = Application.getInstance().getEmf().createEntityManager();
 		try {

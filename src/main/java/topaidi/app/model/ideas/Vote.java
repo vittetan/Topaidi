@@ -40,6 +40,14 @@ public class Vote {
 	}
 	
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public boolean isTop() {
 		return isTop;
 	}

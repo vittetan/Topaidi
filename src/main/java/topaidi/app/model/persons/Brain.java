@@ -55,6 +55,54 @@ public class Brain extends Person {
 		this.reportComments = new ArrayList<ReportComment>();
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Set<Idea> getIdeas() {
+		return ideas;
+	}
+
+	public void setIdeas(Set<Idea> ideas) {
+		this.ideas = ideas;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
+	}
+
+	public List<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVotes(List<Vote> votes) {
+		this.votes = votes;
+	}
+
+	public List<ReportIdea> getReportIdeas() {
+		return reportIdeas;
+	}
+
+	public void setReportIdeas(List<ReportIdea> reportIdeas) {
+		this.reportIdeas = reportIdeas;
+	}
+
+	public List<ReportComment> getReportComments() {
+		return reportComments;
+	}
+
+	public void setReportComments(List<ReportComment> reportComments) {
+		this.reportComments = reportComments;
+	}
+
 	public boolean isValidated() {
 		return isValidated;
 	}

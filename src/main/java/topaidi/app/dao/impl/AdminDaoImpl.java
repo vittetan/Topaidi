@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.AdminDao;
 import topaidi.app.model.persons.Admin;
+import topaidi.app.utils.Application;
 
 public class AdminDaoImpl implements AdminDao {
 

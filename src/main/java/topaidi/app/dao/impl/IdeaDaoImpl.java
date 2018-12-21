@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.IdeaDao;
 import topaidi.app.model.ideas.Idea;
+import topaidi.app.utils.Application;
 
 public class IdeaDaoImpl implements IdeaDao {
 

@@ -31,6 +31,14 @@ public class ReportComment extends Report {
 		setComment(comment);
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Brain getBrain() {
 		return brain;
 	}

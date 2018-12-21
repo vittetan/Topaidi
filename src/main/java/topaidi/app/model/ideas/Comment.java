@@ -51,6 +51,22 @@ public class Comment {
 		this.reports = new ArrayList<ReportComment>();		
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public List<ReportComment> getReports() {
+		return reports;
+	}
+
+	public void setReports(List<ReportComment> reports) {
+		this.reports = reports;
+	}
+
 	public Brain getBrain() {
 		return brain;
 	}

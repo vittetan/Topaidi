@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.ReportIdeaDao;
 import topaidi.app.model.reports.ReportIdea;
+import topaidi.app.utils.Application;
 
 public class ReportIdeaDaoImpl implements ReportIdeaDao {
 

@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.VoteDao;
 import topaidi.app.model.ideas.Vote;
+import topaidi.app.utils.Application;
 
 public class VoteDaoImpl implements VoteDao {
 

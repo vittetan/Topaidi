@@ -111,8 +111,15 @@ public class Idea {
 	public int myBuzzRanking() {
 		return 0;
 	}
-	
-	
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public String getTitle() {
 		return title;
 	}
@@ -129,12 +136,20 @@ public class Idea {
 		this.description = description;
 	}
 
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
+	}
+
 	public Date getDateCreation() {
 		return dateCreation;
 	}
 
 	public void setDateCreation() {
-		this.dateCreation = new Date();
+		this.dateCreation = new Date();;
 	}
 
 	public Date getDateEnd() {
@@ -153,12 +168,12 @@ public class Idea {
 		this.isActivated = isActivated;
 	}
 
-	public String getImage() {
-		return image;
+	public Brain getBrain() {
+		return brain;
 	}
 
-	public void setImage(String image) {
-		this.image = image;
+	public void setBrain(Brain brain) {
+		this.brain = brain;
 	}
 
 	public Category getCategory() {
@@ -169,12 +184,30 @@ public class Idea {
 		this.category = category;
 	}
 
-	public Brain getBrain() {
-		return brain;
+	public Set<Comment> getComments() {
+		return comments;
 	}
 
-	public void setBrain(Brain brain) {
-		this.brain = brain;
+	public void setComments(Set<Comment> comments) {
+		this.comments = comments;
 	}
+
+	public Set<Vote> getVotes() {
+		return votes;
+	}
+
+	public void setVotes(Set<Vote> votes) {
+		this.votes = votes;
+	}
+
+	public Set<ReportIdea> getReportIdeas() {
+		return reportIdeas;
+	}
+
+	public void setReportIdeas(Set<ReportIdea> reportIdeas) {
+		this.reportIdeas = reportIdeas;
+	}
+	
+
 
 }

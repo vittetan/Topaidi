@@ -9,6 +9,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.BrainDao;
 import topaidi.app.model.persons.Brain;
+import topaidi.app.utils.Application;
 
 public class BrainDaoImpl implements BrainDao {
 

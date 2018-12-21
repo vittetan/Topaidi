@@ -25,6 +25,14 @@ public class Admin extends Person {
 		super(login, password, pseudo);
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public void validateBrain(Brain brain) {
 
 	}

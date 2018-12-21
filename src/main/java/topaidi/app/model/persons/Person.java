@@ -6,20 +6,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
 public abstract class Person {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-
-	@Column()
 	private String login;
 	
-	@Column()
 	private String password;
 	
-	@Column()
 	private String pseudo;
 
 	public Person() {
@@ -31,7 +23,6 @@ public abstract class Person {
 		setPseudo(pseudo);
 	}
 
-	
 	public String getLogin() {
 		return login;
 	}

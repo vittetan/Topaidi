@@ -35,6 +35,14 @@ public class ReportIdea extends Report {
 		setBrain(brain);
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
 	public Idea getIdea() {
 		return idea;
 	}

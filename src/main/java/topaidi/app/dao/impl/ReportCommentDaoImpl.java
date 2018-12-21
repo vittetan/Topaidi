@@ -8,6 +8,7 @@ import javax.persistence.Query;
 
 import topaidi.app.dao.ReportCommentDao;
 import topaidi.app.model.reports.ReportComment;
+import topaidi.app.utils.Application;
 
 public class ReportCommentDaoImpl implements ReportCommentDao {
 
