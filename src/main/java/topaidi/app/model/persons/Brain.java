@@ -1,7 +1,16 @@
 package topaidi.app.model.persons;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import topaidi.app.model.ideas.Comment;
 import topaidi.app.model.ideas.Idea;
@@ -9,12 +18,23 @@ import topaidi.app.model.ideas.Vote;
 import topaidi.app.model.reports.ReportComment;
 import topaidi.app.model.reports.ReportIdea;
 
+@Entity
 public class Brain extends Person {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
+	@Column()
 	private boolean isValidated;
+	
+	@Column()
 	private boolean isActivated;
 
-	private List<Idea> ideas;
+	@OneToMany(mappedBy="brain")
+	private Set<Idea> ideas;
+	
+	
 	private List<Comment> comments;
 	private List<Vote> votes;
 	private List<ReportIdea> reportIdeas;
@@ -25,7 +45,7 @@ public class Brain extends Person {
 		setValidated(false);
 		setActivated(true);
 		
-		this.ideas = new ArrayList<Idea>();
+		this.ideas = new HashSet<Idea>();
 		this.comments = new ArrayList<Comment>();
 		this.votes = new ArrayList<Vote>();
 		this.reportIdeas = new ArrayList<ReportIdea>();

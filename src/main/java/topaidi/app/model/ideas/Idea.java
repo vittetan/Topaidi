@@ -2,27 +2,64 @@ package topaidi.app.model.ideas;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import topaidi.app.model.categories.Category;
 import topaidi.app.model.persons.Brain;
 import topaidi.app.model.reports.ReportIdea;
 
+@Entity
 public class Idea {
-
-	private Brain brain;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column
 	private String title;
+	
+	@Column
 	private String description;
-	private Category category;
+	
+	@Column
 	private String image;
-
+	
+	@Column
 	private Date dateCreation;
+	
+	@Column
 	private Date dateEnd;
+	
+	@Column
 	private boolean isActivated;
-
-	private List<Comment> comments;
-	private List<Vote> votes;
-	private List<ReportIdea> reportIdeas;
+	
+	@ManyToOne
+	@JoinColumn(name="BRAIN_ID")
+	private Brain brain;
+		
+	@ManyToOne
+	@JoinColumn(name="CATEGORY_ID")
+	private Category category;
+	
+	@OneToMany(mappedBy="idea")
+	private Set<Comment> comments;
+		
+	@OneToMany(mappedBy="idea")
+	private Set<Vote> votes;
+	
+	@OneToMany(mappedBy="idea")
+	private Set<ReportIdea> reportIdeas;
 
 	public Idea(Brain brain, String title, String description, Category category) {
 		setBrain(brain);
@@ -34,9 +71,9 @@ public class Idea {
 		setDateEnd();
 		setActivated(true);
 
-		this.comments = new ArrayList<Comment>();
-		this.votes = new ArrayList<Vote>();
-		this.reportIdeas = new ArrayList<ReportIdea>();
+		this.comments = new HashSet<Comment>();
+		this.votes = new HashSet<Vote>();
+		this.reportIdeas = new HashSet<ReportIdea>();
 	}
 
 	public Idea(Brain brain, String title, String description, String image, Category category) {
@@ -50,9 +87,9 @@ public class Idea {
 		setDateEnd();
 		setActivated(true);
 
-		this.comments = new ArrayList<Comment>();
-		this.votes = new ArrayList<Vote>();
-		this.reportIdeas = new ArrayList<ReportIdea>();
+		this.comments = new HashSet<Comment>();
+		this.votes = new HashSet<Vote>();
+		this.reportIdeas = new HashSet<ReportIdea>();
 	}
 
 	

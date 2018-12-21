@@ -1,9 +1,25 @@
 package topaidi.app.model.persons;
 
-public abstract class Person {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
+public abstract class Person {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
+	@Column()
 	private String login;
+	
+	@Column()
 	private String password;
+	
+	@Column()
 	private String pseudo;
 
 	public Person(String login, String password, String pseudo) {

@@ -1,20 +1,41 @@
 package topaidi.app.model.categories;
 
-import java.util.List;
+
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import topaidi.app.model.ideas.Idea;
 
+@Entity
 public class Category {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
 
+	@Column
 	private String name;
+	
+	@Column
 	private String description;
-	private List<Idea> ideas;
+	
+	
+	@OneToMany(mappedBy="category")
+	private Set<Idea> ideas;
+	
 
-	public Category(String name, String description, List<Idea> ideas) {
+	public Category(String name, String description, Set<Idea> ideas) {
 		setName(name);
 		setDescription(description);
 		setIdeas(ideas);
 	}
+	
 
 	public String getName() {
 		return name;
@@ -32,12 +53,15 @@ public class Category {
 		this.description = description;
 	}
 
-	public List<Idea> getIdeas() {
+
+	public Set<Idea> getIdeas() {
 		return ideas;
 	}
 
-	public void setIdeas(List<Idea> ideas) {
+	public void setIdeas(Set<Idea> ideas) {
 		this.ideas = ideas;
 	}
+
+
 
 }

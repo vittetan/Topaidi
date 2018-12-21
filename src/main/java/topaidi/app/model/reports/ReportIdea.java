@@ -1,12 +1,30 @@
 package topaidi.app.model.reports;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 import topaidi.app.model.ideas.Idea;
 import topaidi.app.model.persons.Brain;
 
+@Entity
 public class ReportIdea extends Report {
-
-	private Idea idea;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Column()
 	private Brain brain;
+	
+	@ManyToOne
+	@JoinColumn(name="IDEA_ID")
+	private Idea idea;
+	
 
 	public ReportIdea(Idea idea, Brain brain, String description) {
 		super(description);
